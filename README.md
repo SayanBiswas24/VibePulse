@@ -1,3 +1,5 @@
 State Management (Riverpod): I used a centralized NotifierProvider to handle data and pagination. This creates a single "source of truth," so actions like liking a post update instantly across both the Feed and Detail screens without redundant API calls.
+
 Scrolling Performance (RepaintBoundary): I isolated the complex post cards (and their heavy shadows) into separate layers. Using the Performance Overlay, I verified that the engine caches these layers, significantly reducing the work the GPU has to do during fast scrolling.
+
 Memory Efficiency (memCacheWidth): To prevent RAM spikes, I forced images to decode at the exact physical width of the screen rather than their full raw resolution. I verified this in the Memory DevTools, seeing a massive drop in the image cache footprint.
