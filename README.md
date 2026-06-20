@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-# high_perf_feed
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-=======
-# VibePulse
->>>>>>> 21ff0f1e548a5a6b700680ba0f4d1a526c0d3d68
+State Management (Riverpod): I used a centralized NotifierProvider to handle data and pagination. This creates a single "source of truth," so actions like liking a post update instantly across both the Feed and Detail screens without redundant API calls.
+Scrolling Performance (RepaintBoundary): I isolated the complex post cards (and their heavy shadows) into separate layers. Using the Performance Overlay, I verified that the engine caches these layers, significantly reducing the work the GPU has to do during fast scrolling.
+Memory Efficiency (memCacheWidth): To prevent RAM spikes, I forced images to decode at the exact physical width of the screen rather than their full raw resolution. I verified this in the Memory DevTools, seeing a massive drop in the image cache footprint.
